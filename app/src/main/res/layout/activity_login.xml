@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color"
+            android:orientation="vertical"
+            android:weightSum="4"
+            android:id="@+id/mainLayout"
+            android:layout_centerVertical="true"
+            tools:context=".Activities.Login">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/tracontact_icon"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/forty_dp"
+                android:layout_marginLeft="@dimen/twenty_dp"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titleLogin"
+                    android:text="@string/login_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twenty_dp">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameLL"
+                    android:layout_marginTop="@dimen/twenty_dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvName"
+                        android:text="@string/your_name"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/ten_dp"
+                        android:textSize="@dimen/twelve_dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etName"
+                        android:textSize="@dimen/twelve_dp"
+                        android:padding="@dimen/ten_dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColorHint="@color/edittext_text"
+                        android:layout_marginTop="@dimen/five_dp"
+                        android:textColor="@color/edittext_text"
+                        android:background="@drawable/rounded_edittext">
+
+                    </EditText>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mobileLL"
+                    android:layout_marginTop="@dimen/ten_dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvMobile"
+                        android:text="@string/your_mobile"
+                        android:textColor="@color/white"
+                        android:inputType="phone"
+                        android:layout_marginLeft="@dimen/ten_dp"
+                        android:textSize="@dimen/twelve_dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etMobile"
+                        android:textSize="@dimen/twelve_dp"
+                        android:padding="@dimen/ten_dp"
+                        android:maxLines="1"
+                        android:textColorHint="@color/edittext_text"
+                        android:inputType="number"
+                        android:layout_marginTop="@dimen/five_dp"
+                        android:textColor="@color/edittext_text"
+                        android:background="@drawable/rounded_edittext">
+
+                    </EditText>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailLL"
+                    android:layout_marginTop="@dimen/ten_dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvEmail"
+                        android:text="@string/your_email"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/ten_dp"
+                        android:textSize="@dimen/twelve_dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etEmail"
+                        android:textSize="@dimen/twelve_dp"
+                        android:padding="@dimen/ten_dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColorHint="@color/edittext_text"
+                        android:layout_marginTop="@dimen/five_dp"
+                        android:textColor="@color/edittext_text"
+                        android:background="@drawable/rounded_edittext">
+
+                    </EditText>
+
+
+
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_btn"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twenty_dp"
+                    android:background="@drawable/rounded_button"
+                    android:layout_marginTop="@dimen/thirty_dp"
+                    android:id="@+id/startBtn">
+
+                </Button>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+
+    </RelativeLayout>
+</ScrollView>

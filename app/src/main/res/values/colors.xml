@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#242d4c</color>
+    <color name="colorPrimaryDark">#242d4c</color>
+    <color name="colorAccent">#a5a3b0</color>
+    <color name="background_color">#242d4c</color>
+    <color name="background_edittext">#333d61</color>
+    <color name="edittext_text">#a5a3b0</color>
+    <color name="background_button">#0d83ff</color>
+    <color name="white">#ffffff</color>
+    <color name="home_yellow">#F69A03</color>
+    <color name="home_red">#F32A41</color>
+    <color name="textview_background">#FAE7CA</color>
+</resources>

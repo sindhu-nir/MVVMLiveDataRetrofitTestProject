@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".view.ui.MainActivity">
+
+
+
+    <include
+
+        layout="@layout/toolbar_home"></include>
+
+    <Chronometer
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvStopWatch"
+        android:textColor="@android:color/holo_orange_light"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        android:id="@+id/startButton"
+        android:textAllCaps="false"
+        android:background="@drawable/start_button"
+
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/startButton"
+        android:layout_marginTop="20dp"
+        android:text="Stop tracing"
+        android:id="@+id/stopButton"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="View Contacted List"
+        android:textAllCaps="false"
+        android:id="@+id/contactList"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="@dimen/twelve_dp"
+        android:id="@+id/mainLayout"
+        android:orientation="vertical">
+        <include
+
+            layout="@layout/tableheader"></include>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/tableHeaderLayout"
+            android:id="@+id/recyclerView"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sixteen_dp"
+            android:visibility="visible"
+            android:gravity="center"
+            android:id="@+id/tvEmptyMsg"
+            android:textColor="@color/edittext_text">
+
+        </TextView>
+
+        <ProgressBar
+            android:visibility="visible"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

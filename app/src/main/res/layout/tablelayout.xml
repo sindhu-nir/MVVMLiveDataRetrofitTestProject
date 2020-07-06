@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="12"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:id="@+id/rowLayout"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/table_contend_bg"
+        android:text="Name"
+        android:textSize="8sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/titillium_regular"
+        />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/table_contend_bg"
+        android:text="Name"
+        android:textSize="8sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/titillium_regular"
+        />
+
+    <TextView
+        android:id="@+id/txtMobile"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/table_contend_bg"
+        android:text="Mobile"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/titillium_regular"
+        android:textSize="8sp" />
+
+
+
+    <TextView
+        android:id="@+id/txtCount"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/table_contend_bg"
+        android:text="Count"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/titillium_regular"
+        tools:ignore="RtlCompat" />
+
+</LinearLayout>

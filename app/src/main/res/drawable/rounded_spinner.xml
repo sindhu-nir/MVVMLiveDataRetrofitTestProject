@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <gradient
+                        android:startColor="@color/background_edittext"
+                        android:endColor="@color/background_edittext"
+                        android:angle="270" />
+                    <stroke
+                        android:width="0dp"
+                        android:color="#ffffff" />
+                    <corners
+                        android:radius="15dp" />
+                    <padding
+                        android:left="3dp"
+                        android:top="0dp"
+                        android:right="3dp"
+                        android:bottom="0dp" />
+                </shape>
+            </item>
+            <item
+                android:top="12dp"
+                android:right="15dp">
+                <bitmap android:src="@drawable/reg_arrow_down"
+                    android:gravity="top|right" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

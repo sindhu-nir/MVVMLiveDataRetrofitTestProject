@@ -1,0 +1,99 @@
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:focusable="false">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/toolbarRelative">
+
+        <LinearLayout
+            android:layout_width="@dimen/fifty_dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/backll">
+
+            <ImageView
+                android:id="@+id/im_back"
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center|left"
+                android:src="@drawable/back"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="false"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@+id/backll"
+            android:layout_toRightOf="@+id/backll"
+            android:layout_toLeftOf="@+id/logoutll"
+            android:gravity="left"
+            android:layout_marginLeft="0dp"
+            android:textColor="@color/edittext_text"
+            android:textSize="@dimen/sixteen_dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="@dimen/thirty_dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:layout_toLeftOf="@+id/logoutll"
+            android:visibility="gone"
+            android:id="@+id/notificationll">
+
+            <ImageView
+                android:id="@+id/ivnotification"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="@dimen/twenty_dp"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:layout_gravity="center|right"
+                android:src="@drawable/notification" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/thirty_dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/logoutll">
+
+            <ImageView
+                android:id="@+id/im_dt_from"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="@dimen/twenty_dp"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:layout_gravity="center|right"
+                android:src="@drawable/logout" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.appcompat.widget.Toolbar>

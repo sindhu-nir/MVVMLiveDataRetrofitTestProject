@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">BTSLMVVM</string>
+    <string name="test">Hello World</string>
+    <string name="login_title">General Info</string>
+    <string name="your_name">Your Name</string>
+    <string name="your_mobile">Your Mobile</string>
+    <string name="your_email">Your  Email(optional)</string>
+    <string name="start_btn">Start</string>
+    <string name="required_name">Please enter Name</string>
+    <string name="required_mobile">Please enter mobile number</string>
+    <string name="required_pin">Please enter pin number</string>
+    <string name="required_valid_mobile">Please enter a valid mobile number</string>
+    <string name="required_valid_email">Please enter a valid email address</string>
+    <string name="pinnumber_title">Enter Pin Number</string>
+    <string name="your_pinnumber">Enter your pin</string>
+    <string name="login">Login</string>
+    <string name="title_home">TraContact</string>
+    <string name="home_text1">Symptoms</string>
+    <string name="patient_address">Address</string>
+    <string name="patient_symptoms">Details Information</string>
+    <string name="patient_name">Name</string>
+    <string name="patient_mobile">Mobile</string>
+    <string name="submit">Submit</string>
+    <string name="notification_title">Notification</string>
+    <string name="logout_msg">Do you want to logout?</string>
+    <string name="btn_skip_intro">Skip Intro</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="error_patient_name">Please provide patient name</string>
+    <string name="error_patient_address">Please provide patient address</string>
+    <string name="error_patient_introduction">Please introduce yourself</string>
+    <string name="error_patient_thana">Please select a thana</string>
+    <string name="common_error_msg">No data found</string>
+    <string name="common_network_error_msg">ডাটা খুঁজে পাওয়া যায়নি</string>
+    <string name="ok">Ok</string>
+    <string name="name_hint">ex: ABCD</string>
+    <string name="mobile_hint">ex: 01XXXXXXXXX</string>
+    <string name="email_hint">ex:xyz@domain.com</string>
+    <string name="patient_introduction">Introduce Yourself</string>
+    <string name="self">Self</string>
+    <string name="others">Others</string>
+    <string name="thana">Thana</string>
+    <string name="house">House</string>
+    <string name="road">Road</string>
+    <string name="Area">Area</string>
+    <string name="postcode">PostCode</string>
+    <string name="thana_hint">Select Thana</string>
+    <string name="area_hint">Select Area</string>
+    <string name="submit_quarantine">Start Quarantine</string>
+    <string name="current_situation">Current Situation</string>
+    <string name="date_time">Date Time</string>
+    <string name="api_key">AIzaSyCDDMcIlF_HTTQ5L7YTvmBmEW2ZtKxCxRc</string>
+    <string name="required_date_msg">Please select date and time</string>
+    <string name="required_current_situation">Could not find your address</string>
+    <string name="required_permission">Please allow permission</string>
+    <string name="required_gps">Please enable the gps</string>
+    <string name="required_msg_notification">You crossed the limit</string>
+    <string name="self_quarantine_title">Self Quarantine</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="remain_day">day remianing</string>
+    <string name="empty_quarantine_list">No data available</string>
+    <string name="complete_quarantine">Completed Quarantine</string>
+    <string name="contact_list_title">Contacted With</string>
+
+
+</resources>
