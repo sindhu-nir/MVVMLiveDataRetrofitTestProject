@@ -17,7 +17,6 @@ public class LoginActivityViewModel extends AndroidViewModel {
 
 
     private MutableLiveData<LoginResponse> mutableLiveData=new MutableLiveData<>();
-    private MutableLiveData<ApiResponse> mutableLiveData2=new MutableLiveData<>() ;
     private LoginRepository loginRepository;
 
     public LoginActivityViewModel(Application application) {
@@ -34,8 +33,8 @@ public class LoginActivityViewModel extends AndroidViewModel {
 //
 //    }
 
-    public void init2(String mobile_no,String full_name){
-        mutableLiveData2 = loginRepository.checkLoginRepo2(mobile_no,full_name);
+    public MutableLiveData<ApiResponse> init2(String mobile_no,String full_name){
+        return loginRepository.checkLoginRepo2(mobile_no,full_name);
 
     }
 
@@ -44,9 +43,6 @@ public class LoginActivityViewModel extends AndroidViewModel {
 //    }
 
     public LiveData<ApiResponse> checkLoginRepository2() {
-//        if (mutableLiveData2==null){
-//            mutableLiveData2=new MutableLiveData<>();
-//        }
-        return mutableLiveData2;
+        return loginRepository.checkLoginLiveData();
     }
 }

@@ -14,7 +14,7 @@ import retrofit2.Response;
 public class LoginRepository {
 
     public static LoginRepository loginRepository;
-
+    MutableLiveData<ApiResponse>  mutableLiveData2 ;
     public static LoginRepository getInstance(){
         if (loginRepository == null){
             loginRepository = new LoginRepository();
@@ -26,12 +26,13 @@ public class LoginRepository {
 
     public LoginRepository(){
         retrofitService = RetrofitClient.cteateService(RetrofitService.class);
+        mutableLiveData2 = new MutableLiveData<>();
 
     }
 
 
     public MutableLiveData<LoginResponse> checkLoginRepo(String mobile_no,String full_name){
-        MutableLiveData<LoginResponse>  mutableLiveData = new MutableLiveData<>();
+        MutableLiveData<LoginResponse>  mutableLiveData = null;
         retrofitService.checkLogin(mobile_no,full_name).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call,
@@ -51,7 +52,7 @@ public class LoginRepository {
     }
 
     public MutableLiveData<ApiResponse> checkLoginRepo2(String mobile_no, String full_name){
-        MutableLiveData<ApiResponse>  mutableLiveData2 = new MutableLiveData<>();
+
         mutableLiveData2.setValue(ApiResponse.loading(null));
         retrofitService.checkLogin(mobile_no,full_name).enqueue(new Callback<LoginResponse>() {
             @Override
@@ -60,6 +61,7 @@ public class LoginRepository {
                 if (response.isSuccessful()){
                     mutableLiveData2.setValue(ApiResponse.success(response, null));
                     System.out.println("Login Repo Called");
+
                 }
             }
 
@@ -68,6 +70,10 @@ public class LoginRepository {
                 mutableLiveData2.setValue(ApiResponse.error(t, null));
             }
         });
+        return mutableLiveData2;
+    }
+
+    public LiveData<ApiResponse> checkLoginLiveData() {
         return mutableLiveData2;
     }
 }
