@@ -51,7 +51,7 @@ public class LoginRepository {
         return mutableLiveData;
     }
 
-    public MutableLiveData<ApiResponse> checkLoginRepo2(String mobile_no, String full_name){
+    public MutableLiveData<ApiResponse> getLoginDataFromServer(String mobile_no, String full_name){
 
         mutableLiveData2.setValue(ApiResponse.loading(null));
         retrofitService.checkLogin(mobile_no,full_name).enqueue(new Callback<LoginResponse>() {
@@ -59,8 +59,8 @@ public class LoginRepository {
             public void onResponse(Call<LoginResponse> call,
                                    Response<LoginResponse> response) {
                 if (response.isSuccessful()){
-                    mutableLiveData2.setValue(ApiResponse.success(response, null));
-                    System.out.println("Login Repo Called");
+                    mutableLiveData2.setValue(ApiResponse.success(response.body(), "Login"));
+                    System.out.println("Api Response Repository : "+response);
 
                 }
             }

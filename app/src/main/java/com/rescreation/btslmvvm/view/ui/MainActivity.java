@@ -43,6 +43,10 @@ import com.google.android.gms.analytics.Tracker;
 import com.rescreation.btslmvvm.R;
 import com.rescreation.btslmvvm.model.modelclass.ContactData;
 import com.rescreation.btslmvvm.model.modelclass.ContactListData;
+import com.rescreation.btslmvvm.model.response.ApiResponse;
+import com.rescreation.btslmvvm.model.response.ContactTracingDataResponse;
+import com.rescreation.btslmvvm.model.response.LoginResponse;
+import com.rescreation.btslmvvm.model.response.SendContactDataResponse;
 import com.rescreation.btslmvvm.room.database.DatabaseInstance;
 import com.rescreation.btslmvvm.room.model.ContactTracingModel;
 import com.rescreation.btslmvvm.service.BluetoothBackgroundService;
@@ -228,6 +232,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        mainActivityViewModel.checkContactData().observe(this, apiResponse -> {
+            System.out.println("Observer Working properly");
+            consumeResponse(apiResponse);
+        });
 
     }
     public void setupRecyclerView(){
@@ -443,6 +451,7 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println("Check Database SEND: "+listContactTracingModel.size()+" value I= "+i);
                             //    ServerCallForContactTracing obj = new ServerCallForContactTracing(mContext);
                               //  obj.sendServer(listContactTracingModel.get(i).getMyUid(),listContactTracingModel.get(i).getContactUid(),listContactTracingModel.get(i).getSend_time(),listContactTracingModel.get(i).getRssi(),i,"Home");
+                                mainActivityViewModel.sendContactDataFromServer(listContactTracingModel.get(i).getMyUid(),listContactTracingModel.get(i).getContactUid(),listContactTracingModel.get(i).getSend_time(),listContactTracingModel.get(i).getRssi(),i,"Home");
                             }
 
 
@@ -458,29 +467,64 @@ public class MainActivity extends AppCompatActivity {
     }
     private void getData() {
 
-        progressBar.setVisibility(View.VISIBLE);
-        mainActivityViewModel.init(uid);
+        mainActivityViewModel.getContactDataFromServer(uid);
 
-        mainActivityViewModel.getContactData().observe(this, contactTracingDataResponse -> {
-            if (contactTracingDataResponse!=null && contactTracingDataResponse.getStatus().equals(1)) {
-                progressBar.setVisibility(View.GONE);
-                contactList.clear();
-                tableHeaderLayout.setVisibility(View.VISIBLE);
-                List<ContactData> contactDataList = contactTracingDataResponse.getData();
-                contactList.addAll(contactDataList);
-                adapter.notifyDataSetChanged();
+    }
 
-            }
-            else{
-                progressBar.setVisibility(View.GONE);
-                tableHeaderLayout.setVisibility(View.GONE);
-                //Utils.showSnackBar(mContext,mainLayout,contactTracingDataResponse.getMessage(),"OK",0);
+    private void consumeResponse(ApiResponse apiResponse) {
+        if (apiResponse==null) return;
+        switch (apiResponse.status) {
 
-                //Toast.makeText(this, "Nothing Found", Toast.LENGTH_SHORT).show();
+            case LOADING:
+                showProgressBar();
+                break;
 
-            }
-        });
 
+            case SUCCESS:
+                hideProgressBar();
+                System.out.println("Api Response Activity : "+apiResponse.requestType);
+                if (apiResponse.requestType.equals("ContactData")) {
+                    ContactTracingDataResponse contactTracingDataResponse = (ContactTracingDataResponse) apiResponse.data;
+                    if (contactTracingDataResponse != null) {
+                        if (contactTracingDataResponse.getStatus().equals(1)) {
+                            contactList.clear();
+                            tableHeaderLayout.setVisibility(View.VISIBLE);
+                            List<ContactData> contactDataList = contactTracingDataResponse.getData();
+                            contactList.addAll(contactDataList);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            tableHeaderLayout.setVisibility(View.GONE);
+                        }
+                    } else {
+
+                    }
+                }
+                else if(apiResponse.requestType.equals("SendContactDataHome")){
+                    SendContactDataResponse sendContactDataResponse = (SendContactDataResponse) apiResponse.data;
+                    if (sendContactDataResponse != null) {
+                        if (sendContactDataResponse.getStatus().equals(1)) {
+                            System.out.println("Api Response Send ContactDataHome : "+sendContactDataResponse.getMessage());
+                        } else {
+                            tableHeaderLayout.setVisibility(View.GONE);
+                        }
+                    } else {
+
+                    }
+                }
+
+                break;
+
+
+            case ERROR:
+                hideProgressBar();
+                break;
+
+
+            default:
+                hideProgressBar();
+                break;
+
+        }
     }
     public String convertDateTIme(String dateTime){
         Date date = null;
@@ -518,5 +562,15 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onResume Called");
         // put your code here...
 
+    }
+
+
+    private void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+
+    private void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
     }
 }

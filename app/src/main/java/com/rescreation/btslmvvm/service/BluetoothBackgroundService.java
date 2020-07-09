@@ -30,6 +30,8 @@ import com.rescreation.btslmvvm.model.modelclass.BluetoothDetails;
 import com.rescreation.btslmvvm.room.database.DatabaseInstance;
 import com.rescreation.btslmvvm.room.model.ContactTracingModel;
 import com.rescreation.btslmvvm.util.Utils;
+import com.rescreation.btslmvvm.view.ui.MyApplication;
+import com.rescreation.btslmvvm.viewmodel.MainActivityViewModel;
 
 import java.lang.reflect.Method;
 import java.text.ParseException;
@@ -50,6 +52,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class BluetoothBackgroundService extends Service {
@@ -517,6 +520,7 @@ public class BluetoothBackgroundService extends Service {
         if (Utils.isNetworkAvailable(mContext)) {
 //            ServerCallForContactTracing obj = new ServerCallForContactTracing(mContext);
 //            obj.sendServer(myUid,contactUid, dateTime, rssi,0, "Service");
+
             Log.d(TAG, "Send Data to Server");
 
         } else {

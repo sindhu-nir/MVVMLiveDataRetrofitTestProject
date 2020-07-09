@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.rescreation.btslmvvm.model.repository.LoginRepository;
 import com.rescreation.btslmvvm.model.repository.MainActivityRepository;
+import com.rescreation.btslmvvm.model.response.ApiResponse;
 import com.rescreation.btslmvvm.model.response.ContactTracingDataResponse;
 import com.rescreation.btslmvvm.model.response.LoginResponse;
 
@@ -20,17 +21,27 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
 
-    private MutableLiveData<ContactTracingDataResponse> mutableLiveData=new MutableLiveData<>();
     private MainActivityRepository mainActivityRepository;
 
-    public void init(String user_id){
-//        if (mutableLiveData != null){
-//            return;
-//        }
-        mutableLiveData = mainActivityRepository.getContactTracingData(user_id);
+    public MutableLiveData<ApiResponse> getContactDataFromServer(String user_id){
+
+        return mainActivityRepository.getContactTracingData(user_id);
+
 
     }
-    public LiveData<ContactTracingDataResponse> getContactData() {
-        return mutableLiveData;
+    public LiveData<ApiResponse> checkContactData() {
+        return mainActivityRepository.checkContactTracingData();
+    }
+
+
+    public MutableLiveData<ApiResponse> sendContactDataFromServer(String myUid, String contactWithUid, String dateTime,
+                                                                  String rssi,  int listSize,  String sourcePAge){
+        return mainActivityRepository.sendContactTracingData(myUid,contactWithUid,dateTime,
+         rssi,listSize,sourcePAge);
+
+
+    }
+    public LiveData<ApiResponse> checkContactTracingSendData() {
+        return mainActivityRepository.checkContactTracingSendData();
     }
 }

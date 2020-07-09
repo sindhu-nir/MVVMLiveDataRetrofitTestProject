@@ -5,6 +5,7 @@ import android.database.Observable;
 import com.rescreation.btslmvvm.model.response.ContactTracingDataResponse;
 import com.rescreation.btslmvvm.model.response.LoginResponse;
 import com.rescreation.btslmvvm.model.response.PinNumberReponse;
+import com.rescreation.btslmvvm.model.response.SendContactDataResponse;
 
 import androidx.lifecycle.LiveData;
 import retrofit2.Call;
@@ -21,6 +22,10 @@ public interface RetrofitService {
 
     @POST("get_contact_tracing_data")
     Call<ContactTracingDataResponse> getContactTracingData(@Query("user_id") String user_id);
+
+    @POST("add_contact_tracing")
+    Call<SendContactDataResponse> sendContactTracingData(@Query("user_id") String user_id,@Query("contact_with") String contact_with,
+                                                         @Query("contact_time") String contact_time,@Query("strength_value") String strength_value);
 
     @POST("verify")
     Call<PinNumberReponse> varifyPinNumber(@Query("user_id") String user_id,@Query("mobile_no") String mobile_no,@Query("pin_code") String pin_code);

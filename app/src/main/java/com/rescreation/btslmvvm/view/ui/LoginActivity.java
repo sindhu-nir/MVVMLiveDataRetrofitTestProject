@@ -233,14 +233,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case SUCCESS:
                 hideProgressBar();
-                LoginResponse response = (LoginResponse) apiResponse.data;
-                if (response != null) {
-                    if (response.getStatus().equals(1)) {
-                        LoginData loginData = response.getData();
-                        String uId=loginData.getUserId().toString();
+                System.out.println("Api Response Activity : "+apiResponse.requestType);
+                LoginResponse loginResponse = (LoginResponse) apiResponse.data;
+                if (loginResponse != null) {
+                    if (loginResponse.getStatus().equals(1)) {
+                        navigateToMainActivity(loginResponse.getData());
                     } else {
-                       // showErrorDialog("Login Failed", response.getMessage());
+                        Utils.showSnackBar(mContext,mainLayout,loginResponse.getMessage(),"OK",0);
                     }
+                }else{
+                    Utils.showSnackBar(mContext,mainLayout,loginResponse.getMessage(),"OK",0);
+
                 }
 
                 break;
@@ -256,6 +259,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
         }
+    }
+
+    private void navigateToMainActivity(LoginData loginData){
+                String uId = "";
+                String mobile = "";
+                String full_name="";
+
+                uId=loginData.getUserId().toString();
+                mobile=loginData.getMobileNo();
+                full_name=loginData.getFullName();
+                SharedPreferences sharedpreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString("Name", full_name);
+                editor.putString("UID", uId);
+                editor.putString("Mobile",mobile);
+                editor.commit();
+                if(loginData.getIsVerified()!=null){
+                    if(loginData.getIsVerified().equals(1)){
+
+                        session.createLoginSession();
+                        Intent homeIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        // Add new Flag to start new Activity
+                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(homeIntent);
+                        finish();
+                    }
+                    else {
+                        Intent pinIntent = new Intent(LoginActivity.this,PinNumberActivity.class);
+                        pinIntent.putExtra("UID",uId);
+                        pinIntent.putExtra("MOBILE",mobile);
+                        startActivity(pinIntent);
+
+                    }
+
+                }
+
+
+
     }
 
     private void showProgressBar() {

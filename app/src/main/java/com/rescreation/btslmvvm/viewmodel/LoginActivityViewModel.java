@@ -34,7 +34,7 @@ public class LoginActivityViewModel extends AndroidViewModel {
 //    }
 
     public MutableLiveData<ApiResponse> init2(String mobile_no,String full_name){
-        return loginRepository.checkLoginRepo2(mobile_no,full_name);
+        return loginRepository.getLoginDataFromServer(mobile_no,full_name);
 
     }
 
